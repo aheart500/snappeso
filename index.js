@@ -12,11 +12,20 @@ app.use(cors());
 // app.use(bodyparser.json());
 app.use(bodyparser.json({limit: '10mb', extended: true}))
 app.use(bodyparser.urlencoded({limit: '10mb', extended: true}))
+// var mysqlConnection = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: '',
+//     database: 'node',
+//     multipleStatements: true
+// });
+// 	
+
 var mysqlConnection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'node',
+    host: '46.4.34.229',
+    user: 'tmpsa_tmpsa',
+    password: 'amr123456789@~',
+    database: 'tmpsa_tictac',
     multipleStatements: true
 });
 
