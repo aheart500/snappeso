@@ -33,7 +33,7 @@ app.use(bodyparser.json());
 /* mongodb://testUser:xyz123@localhost:27017/test */
 //connect to mongodb server
 mongoose
-  .connect("mongodb://127.0.0.1:27017/test", {
+  .connect("mongodb://testUser:xyz123@localhost:27017/test", {
     useNewUrlParser: true,
     useFindAndModify: false
   })
