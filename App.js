@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const config = require("./utils/config");
 const adminRouter = require("./controllers/AdminRouter");
 const userRouter = require("./controllers/UserRouter");
+const path = require("path");
 
 mongoose
   .connect(config.MongoDB_URI, {
