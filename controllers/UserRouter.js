@@ -57,10 +57,11 @@ userRouter.get("/settings", async (req, res) => {
 
     let nUsers = await userModel.estimatedDocumentCount();
     let settings = await settingsModel.findOne({}).lean();
+
     if (settings) {
       res.send({
-        ...rows,
-        link: link.link ? link : "",
+        ...settings,
+        link: link ? link.link : "",
         nUsers: nUsers ? nUsers : 0
       });
     } else {
