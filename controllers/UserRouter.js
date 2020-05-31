@@ -55,11 +55,18 @@ userRouter.get("/settings", async (req, res) => {
       .select({ link: 1 })
       .lean();
     let nUsers = await userModel.estimatedDocumentCount();
-    settingsModel
-      .findOne({})
-      .lean()
-      .then(rows => res.send({ ...rows, link: link.link, nUsers }))
-      .catch(err => res.end(err));
+    let settings = await settingsModel.findOne({}).lean();
+    if (settings) {
+      res.send({ ...rows, link: link.link, nUsers });
+    } else {
+      res.send({
+        site_name: "",
+        site_description: "",
+        vip_per_page: 3,
+        normal_per_page: 5,
+        vip_message: "اشتراك"
+      });
+    }
   } catch (err) {
     res.end(err);
   }
@@ -247,23 +254,27 @@ userRouter.get("/filter/all", async (req, res) => {
       .find({})
       .select({ age: 1, country: 1, city: 1 })
       .lean();
-    for (let i = 0; i < users.length; i++) {
-      let country, city;
-      country = await countryModel
-        .findOne({ _id: users[i].country })
-        .select({ name: 1 })
-        .lean();
-      city = await cityModel
-        .findOne({ _id: users[i].city })
-        .select({ name: 1 })
-        .lean();
-      users[i] = {
-        ...users[i],
-        country_name: country ? country.name : "",
-        city_name: city ? city.name : ""
-      };
+    if (users) {
+      for (let i = 0; i < users.length; i++) {
+        let country, city;
+        country = await countryModel
+          .findOne({ _id: users[i].country })
+          .select({ name: 1 })
+          .lean();
+        city = await cityModel
+          .findOne({ _id: users[i].city })
+          .select({ name: 1 })
+          .lean();
+        users[i] = {
+          ...users[i],
+          country_name: country ? country.name : "",
+          city_name: city ? city.name : ""
+        };
+      }
+      res.send(users);
+    } else {
+      res.send([]);
     }
-    res.send(users);
   } catch (err) {
     res.end(err);
   }
