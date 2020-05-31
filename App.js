@@ -25,22 +25,22 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 app.use(express.static("frontend"));
 app.get("/admin", (req, res) => {
-  res.sendFile("./frontend/index.html");
+  res.sendFile("index.html", { root: path.join(__dirname, "./frontend/") });
 });
 app.get("/admin-login", (req, res) => {
-  res.sendFile("./frontend/index.html");
+  res.sendFile("index.html", { root: path.join(__dirname, "./frontend/") });
 });
 app.get("/blog", (req, res) => {
-  res.sendFile("./frontend/index.html");
+  res.sendFile("index.html", { root: path.join(__dirname, "./frontend/") });
 });
 app.get("/blog/*", (req, res) => {
-  res.sendFile("./frontend/index.html");
+  res.sendFile("index.html", { root: path.join(__dirname, "./frontend/") });
 });
 app.get("/add-account", (req, res) => {
-  res.sendFile("./frontend/index.html");
+  res.sendFile("index.html", { root: path.join(__dirname, "./frontend/") });
 });
 app.get("/subscription", (req, res) => {
-  res.sendFile("./frontend/index.html");
+  res.sendFile("index.html", { root: path.join(__dirname, "./frontend/") });
 });
 app.use("/api/admin", adminRouter);
 app.use("/api/user", userRouter);
