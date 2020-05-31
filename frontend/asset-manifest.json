@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2bf19e3d.chunk.css",
+    "main.js": "/static/js/main.e3c9d87b.chunk.js",
+    "main.js.map": "/static/js/main.e3c9d87b.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.3ea18b6e.js",
+    "runtime-main.js.map": "/static/js/runtime-main.3ea18b6e.js.map",
+    "static/js/2.9d8f59ac.chunk.js": "/static/js/2.9d8f59ac.chunk.js",
+    "static/js/2.9d8f59ac.chunk.js.map": "/static/js/2.9d8f59ac.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.02b7be0a5091e500726efb0b43c5473f.js": "/precache-manifest.02b7be0a5091e500726efb0b43c5473f.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.2bf19e3d.chunk.css.map": "/static/css/main.2bf19e3d.chunk.css.map",
+    "static/js/2.9d8f59ac.chunk.js.LICENSE.txt": "/static/js/2.9d8f59ac.chunk.js.LICENSE.txt",
+    "static/media/add.svg": "/static/media/add.3d4faa27.svg",
+    "static/media/age.svg": "/static/media/age.2e5e965c.svg",
+    "static/media/arrow.svg": "/static/media/arrow.815e71d8.svg",
+    "static/media/cal.svg": "/static/media/cal.7e826c5a.svg",
+    "static/media/city.svg": "/static/media/city.a7f0be1e.svg",
+    "static/media/clock.svg": "/static/media/clock.5f324e67.svg",
+    "static/media/country.svg": "/static/media/country.a1430763.svg",
+    "static/media/facebook.svg": "/static/media/facebook.0eda72ba.svg",
+    "static/media/ghost-icon.svg": "/static/media/ghost-icon.d2c57f6c.svg",
+    "static/media/instagram.svg": "/static/media/instagram.0dc59a18.svg",
+    "static/media/linkedin.svg": "/static/media/linkedin.9c9759b9.svg",
+    "static/media/singleBlog.css": "/static/media/logotype.42a0c7a1.svg",
+    "static/media/logotype.svg": "/static/media/logotype.df79cca3.svg",
+    "static/media/profile-image.svg": "/static/media/profile-image.d40bfd0e.svg",
+    "static/media/save.svg": "/static/media/save.0a9e3958.svg",
+    "static/media/styles.scss": "/static/media/search.3ee0bd27.svg",
+    "static/media/sex.svg": "/static/media/sex.cad0dcaf.svg",
+    "static/media/twitter.svg": "/static/media/twitter.30e4545d.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3ea18b6e.js",
+    "static/js/2.9d8f59ac.chunk.js",
+    "static/css/main.2bf19e3d.chunk.css",
+    "static/js/main.e3c9d87b.chunk.js"
+  ]
+}
