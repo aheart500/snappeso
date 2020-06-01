@@ -25,6 +25,7 @@ app.use(cors());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 app.use(express.static("frontend"));
+app.use("/images/", express.static("images"));
 app.get("/admin", (req, res) => {
   res.sendFile("index.html", { root: path.join(__dirname, "./frontend/") });
 });
@@ -42,6 +43,14 @@ app.get("/add-account", (req, res) => {
 });
 app.get("/subscription", (req, res) => {
   res.sendFile("index.html", { root: path.join(__dirname, "./frontend/") });
+});
+app.get("/robots.txt", (req, res) => {
+  res.sendFile("index.html", { root: path.join(__dirname, "./frontend/") });
+});
+app.get("/sitemap.xml", (req, res) => {
+  res.sendFile("index.html", {
+    root: path.join(__dirname, "./frontend/sitemap.xml")
+  });
 });
 app.use("/api/admin", adminRouter);
 app.use("/api/user", userRouter);

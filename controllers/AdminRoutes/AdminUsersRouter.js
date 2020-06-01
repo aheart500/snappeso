@@ -1,5 +1,5 @@
 const router = require("express").Router();
-
+const upload = require("../../utils/upload");
 // Models
 
 const userModel = require("../../models/user");
@@ -33,18 +33,13 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", upload.single("img"), async (req, res) => {
+  const url = req.protocol + "://" + req.get("host");
+  let userData = JSON.parse(req.body.userData);
+
   var postData = {
-    name: req.body.name,
-    username: req.body.username,
-    country: req.body.country,
-    sex: req.body.sex,
-    status: req.body.status,
-    block: req.body.block,
-    age: req.body.age,
-    message: req.body.message,
-    city: req.body.city,
-    ip: req.body.ip
+    ...userData,
+    img: req.file ? url + "/images/" + req.file.filename : ""
   };
   try {
     let user = userModel(postData);
@@ -69,17 +64,26 @@ router.post("/", async (req, res) => {
     res.end(err);
   }
 });
-router.put("/:id", async (req, res) => {
+router.put("/:id", upload.single("img"), async (req, res) => {
+  const url = req.protocol + "://" + req.get("host");
+  let userData = JSON.parse(req.body.userData);
   try {
     let country, city;
     if (req.body.country !== "") {
-      country = await countryModel.findOne({ _id: req.body.country });
+      country = await countryModel.findOne({ _id: userData.country });
     }
     if (req.body.city !== "") {
-      city = await cityModel.findOne({ _id: req.body.city });
+      city = await cityModel.findOne({ _id: userData.city });
     }
     userModel
-      .findByIdAndUpdate(req.params.id, req.body, { new: true })
+      .findByIdAndUpdate(
+        req.params.id,
+        {
+          ...userData,
+          img: req.file ? url + "/images/" + req.file.filename : userData.img
+        },
+        { new: true }
+      )
       .then(rows => {
         res.send({
           ...rows._doc,
